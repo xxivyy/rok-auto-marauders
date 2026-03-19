@@ -1,2 +1,2 @@
 
-from .automation import Automation
+from .rok import ROK
