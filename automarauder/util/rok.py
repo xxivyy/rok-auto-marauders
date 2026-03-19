@@ -30,14 +30,14 @@ class ROK(Automation):
     ) -> None:
         '''Attempt to start a new Marauder Run.'''
 
-        cls.click_image(MARAUDER_SEARCH1, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MARAUDER_SEARCH1, confidence=0.9, timeout=2)
 
-        cls.click_image(MARAUDER_SEARCH2, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MARAUDER_SEARCH2, confidence=0.9, timeout=2)
 
-        if cls.click_image(MARAUDER_SEARCH3, confidence=0.9, timeout=5, speed=1, delay=0.5):
+        if cls.click_image(MARAUDER_SEARCH3, confidence=0.9, timeout=2):
             logging.info("Started New Marauder Run.")
 
-        if cls.click_image(MARAUDER_EXIT, confidence=0.9, timeout=5, speed=1, delay=0.5):
+        if cls.click_image(MARAUDER_EXIT, confidence=0.9, timeout=2):
             logging.info("Exited Marauder Menu.")
 
     @classmethod
@@ -46,14 +46,14 @@ class ROK(Automation):
     ) -> None:
         '''Claim all rewards from mail in the system category.'''
 
-        cls.click_image(MAIL_OPEN, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MAIL_OPEN, confidence=0.9, timeout=2)
 
-        cls.click_image(MAIL_CATEGORY_SYSTEM, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MAIL_CATEGORY_SYSTEM, confidence=0.9, timeout=2)
 
-        cls.click_image(MAIL_CLAIM_ALL, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MAIL_CLAIM_ALL, confidence=0.9, timeout=2)
 
-        cls.click_image(MAIL_CONFIRM, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MAIL_CONFIRM, confidence=0.9, timeout=2)
 
-        cls.click_image(MAIL_CLOSE, confidence=0.9, timeout=5, speed=1, delay=0.5)
+        cls.click_image(MAIL_CLOSE, confidence=0.9, timeout=2)
 
         logging.info("Claimed all system rewards.")
