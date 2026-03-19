@@ -43,7 +43,7 @@ class ROK(Automation):
         if cls.click_image(MARAUDER_SEARCH3, confidence=0.9, timeout=2):
             logging.info("Started New Marauder Run.")
 
-        if cls.click_image(MARAUDER_EXIT, confidence=0.9, timeout=2):
+        elif cls.click_image(MARAUDER_EXIT, confidence=0.9, timeout=2):
             logging.info("Exited Marauder Menu.")
 
     @classmethod
@@ -54,15 +54,16 @@ class ROK(Automation):
 
         while True:
             found_open = cls.click_image(MAIL_OPEN, confidence=0.9, timeout=2)
-            found_system = cls.click_image(MAIL_CATEGORY_SYSTEM, confidence=0.9, timeout=2)
 
-            if not all([found_open, found_system]):
+            cls.click_image(MAIL_CATEGORY_SYSTEM, confidence=0.9, timeout=2)
+
+            found_claim = cls.click_image(MAIL_CLAIM_ALL, confidence=0.9, timeout=2)
+
+            if not all([found_open, found_claim]):
                 cls.exitPopups()
                 time.sleep(3)
             else:
                 break # break out of loop only if success. collecting mail is important.
-
-        cls.click_image(MAIL_CLAIM_ALL, confidence=0.9, timeout=2)
 
         cls.click_image(MAIL_CONFIRM, confidence=0.9, timeout=2)
 
