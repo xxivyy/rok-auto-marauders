@@ -23,6 +23,8 @@
 
 ### Option 2: Manual Setup
 
+Make sure CMD window is ran with **Administrator** so the inputs can be made to the game window.
+
 1. `git clone https://github.com/xxbread/rok-auto-marauders/` & `cd rok-auto-marauders`
 
 2. `pip install -r requirements.txt` or make sure your packages are not too outdated.
