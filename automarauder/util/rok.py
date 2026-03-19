@@ -11,7 +11,7 @@ class ROK(Automation):
     @classmethod
     def isMarchOutside(cls) -> bool:
         '''Check if ANY march is currently outside of city.'''
-        return cls.image_exists(MISC_MARCHES_OUT, confidence=0.9, timeout=0)
+        return cls.image_exists(MISC_MARCHES_OUT, confidence=0.8, timeout=0)
     
     @classmethod
     def exitPopups(cls) -> None:
