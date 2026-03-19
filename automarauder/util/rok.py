@@ -2,6 +2,7 @@
 from ..images import *
 from .automation import Automation
 import logging
+import time
 
 class ROK(Automation):
 
@@ -23,6 +24,7 @@ class ROK(Automation):
         # 2: Close Profile if no popup was found (since ESC opens profile)
         if cls.image_exists(MISC_PROFILE_EXITGAME, confidence=0.9, timeout=0):
             cls.press_key("esc", 1)
+        logging.info("Potentially closed Popup.")
 
     @classmethod
     def start_automarauder(
@@ -30,9 +32,13 @@ class ROK(Automation):
     ) -> None:
         '''Attempt to start a new Marauder Run.'''
 
-        cls.click_image(MARAUDER_SEARCH1, confidence=0.9, timeout=2)
+        found_search1 = cls.click_image(MARAUDER_SEARCH1, confidence=0.9, timeout=2)
+        found_search2 = cls.click_image(MARAUDER_SEARCH2, confidence=0.9, timeout=2)
 
-        cls.click_image(MARAUDER_SEARCH2, confidence=0.9, timeout=2)
+        if not all([found_search1, found_search2]):
+            cls.exitPopups()
+            time.sleep(3)
+            return # cancel marauder attempt if something was in the way (soon retry will be handled in main loop)
 
         if cls.click_image(MARAUDER_SEARCH3, confidence=0.9, timeout=2):
             logging.info("Started New Marauder Run.")
@@ -46,9 +52,15 @@ class ROK(Automation):
     ) -> None:
         '''Claim all rewards from mail in the system category.'''
 
-        cls.click_image(MAIL_OPEN, confidence=0.9, timeout=2)
+        while True:
+            found_open = cls.click_image(MAIL_OPEN, confidence=0.9, timeout=2)
+            found_system = cls.click_image(MAIL_CATEGORY_SYSTEM, confidence=0.9, timeout=2)
 
-        cls.click_image(MAIL_CATEGORY_SYSTEM, confidence=0.9, timeout=2)
+            if not all([found_open, found_system]):
+                cls.exitPopups()
+                time.sleep(3)
+            else:
+                break # break out of loop only if success. collecting mail is important.
 
         cls.click_image(MAIL_CLAIM_ALL, confidence=0.9, timeout=2)
 

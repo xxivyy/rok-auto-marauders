@@ -27,10 +27,6 @@ def main(args: list[str]) -> None:
 
         # Collect Mail every 7-10 Minutes
         if abs(time.time() - mail_timer) >= mail_randomizer:
-
-            # Temp: Attempt Exiting Potential Popups (change later to only trigger on actual detection)
-            ROK.exitPopups()
-
             mail_timer = time.time()
             mail_randomizer = random.randint(420, 600)
             ROK.claim_system_rewards()
