@@ -19,6 +19,5 @@ if __name__ == "__main__":
         automarauder(args)
 
     except KeyboardInterrupt:
-        print("Shutting down...")
+        logging.info("Shutting down...")
         os._exit(1)
-        
