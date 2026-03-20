@@ -12,11 +12,21 @@ class ROK(Automation):
     def isMarchOutside(cls) -> bool:
         '''Check if ANY march is currently outside of city.'''
         return cls.image_exists(MISC_MARCHES_OUT, confidence=0.8, timeout=0)
+
+    @classmethod
+    def attempt_reconnect(cls) -> bool:
+
+        if cls.image_exists(MISC_DISCONNECTED, confidence=0.9, timeout=0):
+            cls.click_image(MISC_DISCONNECTED_CONFIRM, confidence=0.9, timeout=0)
+            return True
+        return False
     
     @classmethod
     def exitPopups(cls) -> None:
         '''Exit any popup possibly blocking the screen by ESC button.\n
         Useful because popups can be different. MGE, Update Download, ETC.'''
+
+        if cls.attempt_reconnect(): return
 
         # 1: Attempt Closing
         cls.press_key("esc", 1)

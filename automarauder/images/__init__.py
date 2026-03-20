@@ -5,6 +5,8 @@ IMAGE_BASE = os.path.join(os.path.dirname(os.path.realpath(__file__)), "assets")
 
 MISC_MARCHES_OUT = os.path.join(IMAGE_BASE, "misc", "marches_out.png")
 MISC_PROFILE_EXITGAME = os.path.join(IMAGE_BASE, "misc", "profile_exitgame.png")
+MISC_DISCONNECTED = os.path.join(IMAGE_BASE, "misc", "disconnected.png")
+MISC_DISCONNECTED_CONFIRM = os.path.join(IMAGE_BASE, "misc", "disconnected_confirm.png")
 
 MARAUDER_SEARCH1 = os.path.join(IMAGE_BASE, "marauder", "search_1.png")
 MARAUDER_SEARCH2 = os.path.join(IMAGE_BASE, "marauder", "search_2.png")
