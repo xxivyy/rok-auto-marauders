@@ -45,7 +45,9 @@ At the moment, the project is designed to be ran as a module.
 ### Test Case 1
 
 Timespan: March 19, ~1:00 UTC - March 20th, ~22:00 UTC (2026)
+
 Condition: Pre-KVK 4 , Marauder Stage , 5x Peacekeeper Marches (LVL40-LVL60) , INF & Archer Troops
+
 Result: ~400K+ within ~45H
 
 ---
