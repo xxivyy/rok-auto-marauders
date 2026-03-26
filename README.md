@@ -28,7 +28,7 @@ It can be used by anyone who wants to burn AP during the Marauder Stage in pre K
 
 ### Option 1: Download Release
 
-[Download the latest release](https://github.com/xxbread/rok-auto-marauders/releases/latest)
+Not available at the moment.
 
 ### Option 2: Manual Setup
 
