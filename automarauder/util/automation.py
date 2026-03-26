@@ -1,7 +1,6 @@
 
 import os
 import time
-from typing import Literal
 
 import pyautogui
 pyautogui.PAUSE = 0
