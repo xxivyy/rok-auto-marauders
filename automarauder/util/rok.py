@@ -5,8 +5,7 @@ import logging
 import time
 
 class ROK(Automation):
-
-    # TODO: ADD RECONNECT / RESTART FOR WIFI DISCONNECTS
+    '''ROK Main Functionality.'''
     
     @classmethod
     def isMarchOutside(cls) -> bool:
