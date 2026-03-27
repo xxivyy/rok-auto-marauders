@@ -22,9 +22,10 @@ It can be used by anyone who wants to burn AP during the Marauder Stage in pre K
 # Usage
 
 ### Ingame prerequisites:
-1. Setup auto marauder marches + settings (5 march, use ap, max amount, etc).
-2. Make sure auto marauder is the selected mode in barbarian search mode (barbs, forts, (marauders)), possibly start it once to lock it in. 
-3. Enter your city and hit "space" or map button to get the view right over your city. This is the most optional view for the bot to work.
+1. Set the game to english if not already.
+2. Setup auto marauder marches + settings (5 march, use ap, max amount, etc).
+3. Make sure auto marauder is the selected mode in barbarian search mode (barbs, forts, (marauders)), possibly start it once to lock it in. 
+4. Enter your city and hit "space" or map button to get the view right over your city. This is the most optional view for the bot to work.
 
 ### Option 1: Download Release
 
