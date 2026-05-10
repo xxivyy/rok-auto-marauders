@@ -13,7 +13,7 @@ class Automation:
         start_y: int,
         end_x: int,
         end_y: int,
-        speed: int = 1,
+        speed: float = 1,
         steps: int = 60,
     ) -> None:
         '''Move the mouse to a specific point on the screen with custom smoothing.'''
@@ -33,7 +33,7 @@ class Automation:
     @classmethod
     def click_image(
         cls,
-        image: os.PathLike,
+        image: str,
         confidence: float = 0.9,
         timeout: float = 0,
         speed: float = 0.5,
@@ -53,6 +53,7 @@ class Automation:
             if throw: raise Exception(f"Image not found: {image}")
             return False
         
+        if not _image: return False
         _image_center = pyautogui.center((_image.left, _image.top, _image.width, _image.height))
 
         start_x, start_y = pyautogui.position()
@@ -72,7 +73,7 @@ class Automation:
     @classmethod
     def image_exists(
         cls,
-        image: os.PathLike,
+        image: str,
         confidence: float = 0.9,
         timeout: float = 0,
         region: tuple[int, int, int, int] | None = None,
