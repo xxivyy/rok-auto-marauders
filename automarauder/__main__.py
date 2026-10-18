@@ -1,23 +1,21 @@
-
 import logging
 
 logging.basicConfig(
-    level=logging.INFO, # levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
+    level=logging.INFO,  # levels: DEBUG, INFO, WARNING, ERROR, CRITICAL
     format="[%(asctime)s] %(levelname)s - %(message)s",
-    handlers=[logging.StreamHandler()], # logging.FileHandler(PATH, mode="a", encoding="utf-8")
+    handlers=[
+        logging.StreamHandler()
+    ],  # logging.FileHandler(PATH, mode="a", encoding="utf-8")
 )
 
-import os
-import sys
+logger = logging.getLogger(__name__)
+
 from .main import main as automarauder
 
 if __name__ == "__main__":
-
-    args = sys.argv[1:]
-    
     try:
-        automarauder(args)
+        automarauder()
 
     except KeyboardInterrupt:
-        logging.info("Shutting down...")
-        os._exit(1)
+        logger.info("Shutting down...")
+        logging.shutdown()
