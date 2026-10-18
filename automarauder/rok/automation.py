@@ -1,27 +1,30 @@
-
-import os
 import time
+from pathlib import Path
 
 import pyautogui
-pyautogui.PAUSE = 0
+
+pyautogui.PAUSE = 0.0
+
 
 class Automation:
-
     @staticmethod
     def move_to(
-        start_x: int, 
+        start_x: int,
         start_y: int,
         end_x: int,
         end_y: int,
         speed: float = 1,
         steps: int = 60,
     ) -> None:
-        '''Move the mouse to a specific point on the screen with custom smoothing.'''
+        """Move the mouse to a specific point on the screen with custom smoothing."""
 
         wait_step = speed / steps
+
         for i in range(1, steps + 1):
-            prog = i / steps # current progress 0-1
-            prog = prog * prog * (3 - 2 * prog) # smoothstep easing -> slow start, fast middle, slow end
+            prog = i / steps  # current progress 0-1
+            prog = (
+                prog * prog * (3 - 2 * prog)
+            )  # smoothstep easing -> slow start, fast middle, slow end
 
             # calculate relative position based on progress
             x = start_x + (end_x - start_x) * prog
@@ -33,7 +36,7 @@ class Automation:
     @classmethod
     def click_image(
         cls,
-        image: str,
+        image: Path,
         confidence: float = 0.9,
         timeout: float = 0,
         speed: float = 0.5,
@@ -41,20 +44,26 @@ class Automation:
         region: tuple[int, int, int, int] | None = None,
         throw: bool = False,
     ) -> bool:
-        
+
         try:
             _image = pyautogui.locateOnScreen(
-                image, 
+                image,
                 minSearchTime=timeout,
                 region=region,
                 confidence=confidence,
-                )
-        except:
-            if throw: raise Exception(f"Image not found: {image}")
+            )
+
+        except:  # noqa: E722
+            if throw:
+                raise RuntimeError(f"Image not found: {image}")
             return False
-        
-        if not _image: return False
-        _image_center = pyautogui.center((_image.left, _image.top, _image.width, _image.height))
+
+        if not _image:
+            return False
+
+        _image_center = pyautogui.center(
+            (_image.left, _image.top, _image.width, _image.height)
+        )
 
         start_x, start_y = pyautogui.position()
 
@@ -73,13 +82,13 @@ class Automation:
     @classmethod
     def image_exists(
         cls,
-        image: str,
+        image: Path,
         confidence: float = 0.9,
         timeout: float = 0,
         region: tuple[int, int, int, int] | None = None,
         throw: bool = False,
     ) -> bool:
-        
+
         try:
             pyautogui.locateOnScreen(
                 image=image,
@@ -88,15 +97,17 @@ class Automation:
                 region=region,
             )
             return True
-        except:
-            if throw: raise Exception(f"Image not found: {image}")
+
+        except:  # noqa: E722
+            if throw:
+                raise RuntimeError(f"Image not found: {image}")
             return False
 
     @classmethod
     def press_key(
         cls,
         key: str,
-        delay: float = 0,
+        delay: float,
     ) -> None:
 
         pyautogui.press(key)
