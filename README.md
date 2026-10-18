@@ -15,6 +15,8 @@ This project further automated ROK's Auto Marauder feature to fully work afk for
 
 It can be used by anyone who wants to burn AP during the Marauder Stage in pre KVK.
 
+[!!!] This project may not be updated for the current state of the game and remains here as a proof of concept.
+
 [!!!] Use at your own risk. Botting is against the games TOS.
 
 ---
