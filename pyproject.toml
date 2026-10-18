@@ -1,0 +1,10 @@
+[project]
+name = "rok-auto-marauders"
+version = "0.1.0"
+description = "Automating Marauder Farming for the Rise Of Kingdoms PC Client."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "opencv-python>=5.0.0.93",
+    "pyautogui>=0.9.54",
+]
