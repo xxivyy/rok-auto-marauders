@@ -27,21 +27,19 @@ It can be used by anyone who wants to burn AP during the Marauder Stage in pre K
 3. Make sure auto marauder is the selected mode in barbarian search mode (barbs, forts, (marauders)), possibly start it once to lock it in. 
 4. Enter your city and hit "space" or map button to get the view right over your city. This is the most optional view for the bot to work.
 
-### Option 1: Download Release
+### Manual Setup
 
-Not available at the moment.
+1. Make sure [uv is installed](https://docs.astral.sh/uv/getting-started/installation/).
 
-### Option 2: Manual Setup
+2. `git clone https://github.com/xxivyy/rok-auto-marauders/`
 
-Make sure CMD window is ran with **Administrator** so the inputs can be made to the game window.
+3. `cd rok-auto-marauders`
 
-1. `git clone https://github.com/xxbread/rok-auto-marauders/` & `cd rok-auto-marauders`
+4. `uv sync`
 
-2. `pip install -r requirements.txt` or make sure your packages are not too outdated.
+5. `uv run -m automarauder`
 
-3. `python -m automarauder`
-
-At the moment, the project is designed to be ran as a module.
+Make sure CMD window is ran with **Administrator** for step 5, so the inputs can be made to the game window.
 
 ### Test Case 1
 
@@ -79,4 +77,4 @@ Optional (future) Consideration: marauders are supposed to be slightly "nerfed" 
 
 # License
 
-This project is licensed under the [GNU Affero General Public License v3.0 (AGPLv3)](https://github.com/xxbread/rok-auto-marauders/blob/main/LICENSE).
+This project is licensed under the [GNU Affero General Public License v3.0 (AGPLv3)](https://github.com/xxivyy/rok-auto-marauders/blob/main/LICENSE).
